@@ -22,12 +22,14 @@
 Student specializing in **Artificial Intelligence**.
 Passionate about networks, cybersecurity, server infrastructure, and building things...
 
-- 🖥️ Running my own **self-built physical server** at [arqone.eu](https://arqone.eu) - Ubuntu Server, Nginx, Cloudflare, Pterodactyl...
+- 🖥️ Running my own **self-built physical server** at [arqone.eu](https://arqone.eu) - Ubuntu Server, Nginx, Cloudflare, Tailscale, Raspberry Pi, Pelican...
 - 🐍 **Python** developer - automation, Discord bots, scripting, data tools...
 - 🌐 **Networking** - DNS, reverse proxy, self-hosting; Cisco Networking Academy: CCNA Introduction to Networks (course 1 of 3)
-- 🖨️ **3D printing** hobbyist
+- 💻 Experimenting with building various **websites**
+- 🖨️ **3D printing** & modelling hobbyist - Fusion 360, Tinkercad, Bambu Studio
 - 🔒 **Arch Linux** daily driver (btw)
-- 🤖 Experimenting with things
+- 🏎️ **Sim racing** & motorsport fan
+- 🤖 Running local AI models (Ollama, Open WebUI) and experimenting with things
 
 ---
 
@@ -38,7 +40,6 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
   <img src="profile/badges/python.svg"/>
   <img src="profile/badges/html5.svg"/>
   <img src="profile/badges/css3.svg"/>
-  <img src="profile/badges/c-cpp.svg"/>
   <img src="profile/badges/bash.svg"/>
 </p>
 
@@ -52,13 +53,21 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
   <img src="profile/badges/wireguard.svg"/>
 </p>
 
+**Homelab**
+<p>
+  <img src="profile/badges/ubuntu.svg"/>
+  <img src="profile/badges/raspberry-pi.svg"/>
+  <img src="profile/badges/tailscale.svg"/>
+</p>
+
 **Tools**
 <p>
   <img src="profile/badges/git.svg"/>
-  <img src="profile/badges/vs-code.svg"/>
-  <img src="profile/badges/pterodactyl.svg"/>
+  <img src="profile/badges/code-oss.svg"/>
+  <img src="profile/badges/pelican.svg"/>
   <img src="profile/badges/ollama.svg"/>
   <img src="profile/badges/arduino.svg"/>
+  <img src="profile/badges/fusion-360.svg"/>
 </p>
 
 ---
@@ -66,13 +75,18 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 ## 🚀 Projects
 
 **[arqone.eu](https://arqone.eu)** - Personal server infrastructure & portfolio *(in development since 2024)*
-> Self-built physical server · Ubuntu Server · Nginx reverse proxy · Cloudflare DNS & SSL · Pterodactyl game panel · Discord community
+> Self-built physical server · Ubuntu Server · Nginx reverse proxy · Cloudflare DNS & SSL · Pelican game panel · Raspberry Pi + Tailscale remote access & Wake-on-LAN · ~50-member Discord community
+>
+> Planned: self-written backend and a cloud-hosted status page
 
-**[Arqone Frostline](https://arqone.eu/projects/frostline)** - Whitelisted modded Minecraft server *(completed)*
-> Full server management, modpack creation & configuration, community management
+**[Arqone Frostline](https://arqone.eu/projects/frostline)** - Whitelisted modded Minecraft server *(09/2025 – 01/2026)*
+> Full server management, modpack creation & configuration, community management · ~20 players
+
+**Parking barrier model** - Group project, team of three, top grade *(2025 – 2026)*
+> Arduino Mega 2560 · ultrasonic sensor · servo · 7-segment countdown display · designed in Tinkercad
 
 **Python & Discord bots** - [github.com/kexe-dev](https://github.com/kexe-dev)
-> Automation scripts, Discord bots for community management, self-hosted AI tooling experiments
+> Python scripts, Discord bots, local AI and web experiments (mostly private repositories)
 
 
 ...and a lot more!
@@ -81,8 +95,8 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 
 ## 🏅 Certifications
 
-- 📡 **Cisco Networking Academy: CCNA Introduction to Networks** - (course 1 of 3)
-- 🇬🇧 **Cambridge B1 Preliminary (PET), Grade A** - certified at B2
+- 📡 **Cisco Networking Academy: CCNA Introduction to Networks** - course 1 of 3 *(06/2025)*
+- 🇬🇧 **Cambridge B1 Preliminary (PET), Grade A, score 161** - certified at B2 *(06/2023)*
 
 ---
 
