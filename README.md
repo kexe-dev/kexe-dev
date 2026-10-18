@@ -1,18 +1,18 @@
 <h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&lines=Alexander+Miroslav+Milan;AI+Student;Networks+%7C+Cybersecurity+%7C+Self-hosting;Building+arqone.eu" alt="Typing SVG" />
+  <img src="profile/typing-header.svg" alt="Typing SVG" />
 
   <br>
 
   <a href="https://ko-fi.com/kexe">
-  <img src="https://img.shields.io/badge/Ko--fi-Support%20me-white?style=for-the-badge&logo=ko-fi&logoColor=black" />
+  <img src="profile/badges/ko-fi.svg" />
   </a>
 </h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/OS-Arch_Linux-ffffff?style=for-the-badge&logo=arch-linux&logoColor=black"/>
-  <a href="https://arqone.eu"><img src="https://img.shields.io/badge/arqone.eu-dddddd?style=for-the-badge&logo=firefox&logoColor=black" alt="Website"/></a>
-  <a href="https://instagram.com/arqone.eu"><img src="https://img.shields.io/badge/Instagram-aaaaaa?style=for-the-badge&logo=instagram&logoColor=black" alt="Instagram"/></a>
-  <a href="https://discord.com/users/567010381449396224"><img src="https://img.shields.io/badge/Discord-666666?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/></a>
+  <img src="profile/badges/os-arch-linux.svg"/>
+  <a href="https://arqone.eu"><img src="profile/badges/website.svg" alt="Website"/></a>
+  <a href="https://instagram.com/arqone.eu"><img src="profile/badges/instagram.svg" alt="Instagram"/></a>
+  <a href="https://discord.com/users/567010381449396224"><img src="profile/badges/discord.svg" alt="Discord"/></a>
   <img src="https://komarev.com/ghpvc/?username=kexe-dev&style=for-the-badge&color=333333&label=PROFILE+VIEWS&labelColor=111111" alt="Profile views"/>
 </p>
 
@@ -36,30 +36,30 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 
 **Languages**
 <p>
-  <img src="https://img.shields.io/badge/Python-ffffff?style=for-the-badge&logo=python&logoColor=black"/>
-  <img src="https://img.shields.io/badge/HTML5-dddddd?style=for-the-badge&logo=html5&logoColor=black"/>
-  <img src="https://img.shields.io/badge/CSS3-bbbbbb?style=for-the-badge&logo=css3&logoColor=black"/>
-  <img src="https://img.shields.io/badge/C/C++-999999?style=for-the-badge&logo=c&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Bash-777777?style=for-the-badge&logo=gnubash&logoColor=white"/>
+  <img src="profile/badges/python.svg"/>
+  <img src="profile/badges/html5.svg"/>
+  <img src="profile/badges/css3.svg"/>
+  <img src="profile/badges/c-cpp.svg"/>
+  <img src="profile/badges/bash.svg"/>
 </p>
 
 **Infrastructure & Networking**
 <p>
-  <img src="https://img.shields.io/badge/Cisco-ffffff?style=for-the-badge&logo=cisco&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Linux-dddddd?style=for-the-badge&logo=linux&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Arch_Linux-bbbbbb?style=for-the-badge&logo=arch-linux&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Nginx-999999?style=for-the-badge&logo=nginx&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Cloudflare-777777?style=for-the-badge&logo=cloudflare&logoColor=white"/>
-  <img src="https://img.shields.io/badge/WireGuard-555555?style=for-the-badge&logo=wireguard&logoColor=white"/>
+  <img src="profile/badges/cisco.svg"/>
+  <img src="profile/badges/linux.svg"/>
+  <img src="profile/badges/arch-linux.svg"/>
+  <img src="profile/badges/nginx.svg"/>
+  <img src="profile/badges/cloudflare.svg"/>
+  <img src="profile/badges/wireguard.svg"/>
 </p>
 
 **Tools**
 <p>
-  <img src="https://img.shields.io/badge/Git-ffffff?style=for-the-badge&logo=git&logoColor=black"/>
-  <img src="https://img.shields.io/badge/VS_Code-dddddd?style=for-the-badge&logo=visualstudiocode&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Pterodactyl-bbbbbb?style=for-the-badge&logo=pterodactyl&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Ollama-999999?style=for-the-badge&logo=ollama&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Arduino-777777?style=for-the-badge&logo=arduino&logoColor=white"/>
+  <img src="profile/badges/git.svg"/>
+  <img src="profile/badges/vs-code.svg"/>
+  <img src="profile/badges/pterodactyl.svg"/>
+  <img src="profile/badges/ollama.svg"/>
+  <img src="profile/badges/arduino.svg"/>
 </p>
 
 ---
@@ -72,7 +72,7 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 **[Arqone Frostline](https://arqone.eu/projects/frostline)** - Whitelisted modded Minecraft server *(completed)*
 > Full server management, modpack creation & configuration, community management
 
-**Python & Discord bots** - [github.com/Kexe-Dev](https://github.com/kexe-dev)
+**Python & Discord bots** - [github.com/kexe-dev](https://github.com/kexe-dev)
 > Automation scripts, Discord bots for community management, self-hosted AI tooling experiments
 
 
@@ -90,11 +90,11 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://stats.arqone.eu/api?username=kexe-dev&count_private=true&include_all_commits=true&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=ffffff&icon_color=aaaaaa&text_color=bbbbbb" height="165"/>
+  <img src="profile/stats.svg" height="165"/>
 </p>
 
 <p align="center">
-  <img src="https://streakstats.arqone.eu/api?user=kexe-dev&theme=dark&hide_border=true&background=0d1117&ring=FF6600&fire=FF4500&currStreakLabel=ffffff&sideLabels=aaaaaa&dates=666666" />
+  <img src="profile/streak.svg" />
 </p>
 
 
@@ -103,7 +103,7 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 ## ⏱️ WakaTime Stats
 
 <p align="center">
-  <img src="https://stats.arqone.eu/api/wakatime?username=kexe_dev&theme=dark&hide_border=true&bg_color=0d1117&title_color=ffffff&text_color=bbbbbb&layout=compact&v=1" />
+  <img src="profile/wakatime.svg" />
 </p>
 
 ---
@@ -111,11 +111,11 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 ## 📈 Contribution Graph
 
 <p align="center">
-  <img src="https://graphstats.arqone.eu/graph?username=kexe-dev&theme=react-dark&bg_color=0d1117&color=ffffff&line=555555&point=aaaaaa&hide_border=true&area=true&area_color=222222" />
+  <img src="profile/graph.svg" />
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=16&duration=2000&pause=1400&color=666666&center=true&vCenter=true&width=435&lines=Thanks+for+stopping+by+%F0%9F%90%88" alt="Bye" />
+  <img src="profile/typing-footer.svg" alt="Bye" />
 </p>
