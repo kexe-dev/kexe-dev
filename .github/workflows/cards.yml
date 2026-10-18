@@ -1,0 +1,52 @@
+name: Profile cards
+
+# Pre-renders the README's stat cards (and caches its static badges) into
+# profile/, so GitHub serves finished files instead of waiting on a cold
+# Vercel function. See scripts/fetch-cards.sh.
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      refresh_static:
+        description: "Also re-download the static badges and typing banners"
+        type: boolean
+        default: false
+  push:
+    paths:
+      - .github/workflows/cards.yml
+      - scripts/fetch-cards.sh
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch cards
+        env:
+          REFRESH_STATIC: ${{ inputs.refresh_static && '1' || '0' }}
+        run: ./scripts/fetch-cards.sh
+
+      # Runs even when a card failed, so the ones that did succeed still land.
+      - name: Commit changes
+        if: ${{ !cancelled() }}
+        run: |
+          git add profile/
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update profile cards [skip ci]"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
