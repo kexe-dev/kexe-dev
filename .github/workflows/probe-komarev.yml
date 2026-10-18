@@ -1,0 +1,16 @@
+name: Probe komarev (temporary)
+on:
+  push:
+    paths: [.github/workflows/probe-komarev.yml]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for u in kexe-dev Kexe-Dev; do
+            echo "===== username=$u"
+            curl -sS -i --max-time 30 -A 'github-camo (probe)' \
+              "https://komarev.com/ghpvc/?username=$u&style=for-the-badge&color=333333&label=PROFILE+VIEWS&labelColor=111111" \
+              -o body.txt -D headers.txt -w 'http=%{http_code} type=%{content_type} time=%{time_total}s\n' || true
+            cat headers.txt; head -c 600 body.txt; echo
+          done
