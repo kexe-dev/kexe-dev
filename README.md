@@ -13,7 +13,7 @@
   <a href="https://arqone.eu"><img src="https://img.shields.io/badge/arqone.eu-dddddd?style=for-the-badge&logo=firefox&logoColor=black" alt="Website"/></a>
   <a href="https://instagram.com/arqone.eu"><img src="https://img.shields.io/badge/Instagram-aaaaaa?style=for-the-badge&logo=instagram&logoColor=black" alt="Instagram"/></a>
   <a href="https://discord.com/users/567010381449396224"><img src="https://img.shields.io/badge/Discord-666666?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/></a>
-  <img src="https://komarev.com/ghpvc/?username=Kexe-Dev&style=for-the-badge&color=333333&label=PROFILE+VIEWS&labelColor=111111" alt="Profile views"/>
+  <img src="https://komarev.com/ghpvc/?username=kexe-dev&style=for-the-badge&color=333333&label=PROFILE+VIEWS&labelColor=111111" alt="Profile views"/>
 </p>
 
 ---
