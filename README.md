@@ -13,7 +13,6 @@
   <a href="https://arqone.eu"><img src="profile/badges/website.svg" alt="Website"/></a>
   <a href="https://instagram.com/arqone.eu"><img src="profile/badges/instagram.svg" alt="Instagram"/></a>
   <a href="https://discord.com/users/567010381449396224"><img src="profile/badges/discord.svg" alt="Discord"/></a>
-  <img src="https://komarev.com/ghpvc/?username=kexe-dev&style=for-the-badge&color=333333&label=PROFILE+VIEWS&labelColor=111111" alt="Profile views"/>
 </p>
 
 ---
