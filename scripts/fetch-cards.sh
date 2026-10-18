@@ -8,8 +8,9 @@
 #   STATIC   fetched only when the file is missing, or with REFRESH_STATIC=1.
 #
 # An entry may name a third field: a local SVG that replaces the badge's logo.
-# Shields only knows Simple Icons, which has no Pelican Panel logo, so that
-# badge is requested with a stand-in logo (same layout) and then swapped.
+# Shields only knows Simple Icons, which has no Pelican Panel or Code - OSS
+# logo, so those badges are requested with a stand-in logo (same layout) and
+# then swapped.
 #
 # A response that is not an SVG, or looks like a card's error message, never
 # overwrites the committed file; the script exits non-zero instead.
@@ -46,7 +47,7 @@ STATIC=(
   "profile/badges/raspberry-pi.svg|https://img.shields.io/badge/Raspberry_Pi-dddddd?style=for-the-badge&logo=raspberrypi&logoColor=black"
   "profile/badges/tailscale.svg|https://img.shields.io/badge/Tailscale-bbbbbb?style=for-the-badge&logo=tailscale&logoColor=black"
   "profile/badges/git.svg|https://img.shields.io/badge/Git-ffffff?style=for-the-badge&logo=git&logoColor=black"
-  "profile/badges/vs-code.svg|https://img.shields.io/badge/VS_Code-dddddd?style=for-the-badge&logo=visualstudiocode&logoColor=black"
+  "profile/badges/code-oss.svg|https://img.shields.io/badge/Code_--_OSS-dddddd?style=for-the-badge&logo=vscodium&logoColor=black|profile/logos/code-oss.svg"
   "profile/badges/pelican.svg|https://img.shields.io/badge/Pelican-bbbbbb?style=for-the-badge&logo=pelican&logoColor=black|profile/logos/pelican.svg"
   "profile/badges/ollama.svg|https://img.shields.io/badge/Ollama-999999?style=for-the-badge&logo=ollama&logoColor=white"
   "profile/badges/arduino.svg|https://img.shields.io/badge/Arduino-777777?style=for-the-badge&logo=arduino&logoColor=white"

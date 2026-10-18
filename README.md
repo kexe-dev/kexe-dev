@@ -63,7 +63,7 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 **Tools**
 <p>
   <img src="profile/badges/git.svg"/>
-  <img src="profile/badges/vs-code.svg"/>
+  <img src="profile/badges/code-oss.svg"/>
   <img src="profile/badges/pelican.svg"/>
   <img src="profile/badges/ollama.svg"/>
   <img src="profile/badges/arduino.svg"/>
