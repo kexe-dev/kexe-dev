@@ -7,6 +7,10 @@
 #   DYNAMIC  re-fetched on every run (stats change).
 #   STATIC   fetched only when the file is missing, or with REFRESH_STATIC=1.
 #
+# An entry may name a third field: a local SVG that replaces the badge's logo.
+# Shields only knows Simple Icons, which has no Pelican Panel logo, so that
+# badge is requested with a stand-in logo (same layout) and then swapped.
+#
 # A response that is not an SVG, or looks like a card's error message, never
 # overwrites the committed file; the script exits non-zero instead.
 set -euo pipefail
@@ -31,19 +35,22 @@ STATIC=(
   "profile/badges/python.svg|https://img.shields.io/badge/Python-ffffff?style=for-the-badge&logo=python&logoColor=black"
   "profile/badges/html5.svg|https://img.shields.io/badge/HTML5-dddddd?style=for-the-badge&logo=html5&logoColor=black"
   "profile/badges/css3.svg|https://img.shields.io/badge/CSS3-bbbbbb?style=for-the-badge&logo=css3&logoColor=black"
-  "profile/badges/c-cpp.svg|https://img.shields.io/badge/C/C++-999999?style=for-the-badge&logo=c&logoColor=black"
-  "profile/badges/bash.svg|https://img.shields.io/badge/Bash-777777?style=for-the-badge&logo=gnubash&logoColor=white"
+  "profile/badges/bash.svg|https://img.shields.io/badge/Bash-999999?style=for-the-badge&logo=gnubash&logoColor=black"
   "profile/badges/cisco.svg|https://img.shields.io/badge/Cisco-ffffff?style=for-the-badge&logo=cisco&logoColor=black"
   "profile/badges/linux.svg|https://img.shields.io/badge/Linux-dddddd?style=for-the-badge&logo=linux&logoColor=black"
   "profile/badges/arch-linux.svg|https://img.shields.io/badge/Arch_Linux-bbbbbb?style=for-the-badge&logo=arch-linux&logoColor=black"
   "profile/badges/nginx.svg|https://img.shields.io/badge/Nginx-999999?style=for-the-badge&logo=nginx&logoColor=black"
   "profile/badges/cloudflare.svg|https://img.shields.io/badge/Cloudflare-777777?style=for-the-badge&logo=cloudflare&logoColor=white"
   "profile/badges/wireguard.svg|https://img.shields.io/badge/WireGuard-555555?style=for-the-badge&logo=wireguard&logoColor=white"
+  "profile/badges/ubuntu.svg|https://img.shields.io/badge/Ubuntu-ffffff?style=for-the-badge&logo=ubuntu&logoColor=black"
+  "profile/badges/raspberry-pi.svg|https://img.shields.io/badge/Raspberry_Pi-dddddd?style=for-the-badge&logo=raspberrypi&logoColor=black"
+  "profile/badges/tailscale.svg|https://img.shields.io/badge/Tailscale-bbbbbb?style=for-the-badge&logo=tailscale&logoColor=black"
   "profile/badges/git.svg|https://img.shields.io/badge/Git-ffffff?style=for-the-badge&logo=git&logoColor=black"
   "profile/badges/vs-code.svg|https://img.shields.io/badge/VS_Code-dddddd?style=for-the-badge&logo=visualstudiocode&logoColor=black"
-  "profile/badges/pterodactyl.svg|https://img.shields.io/badge/Pterodactyl-bbbbbb?style=for-the-badge&logo=pterodactyl&logoColor=black"
+  "profile/badges/pelican.svg|https://img.shields.io/badge/Pelican-bbbbbb?style=for-the-badge&logo=pelican&logoColor=black|profile/logos/pelican.svg"
   "profile/badges/ollama.svg|https://img.shields.io/badge/Ollama-999999?style=for-the-badge&logo=ollama&logoColor=white"
   "profile/badges/arduino.svg|https://img.shields.io/badge/Arduino-777777?style=for-the-badge&logo=arduino&logoColor=white"
+  "profile/badges/fusion-360.svg|https://img.shields.io/badge/Fusion_360-555555?style=for-the-badge&logo=autodesk&logoColor=white"
 )
 
 # Text the cards render instead of data when something upstream fails
@@ -53,7 +60,7 @@ ERROR_PATTERN='Something went wrong|Could not (fetch|find|resolve)|Can.t fetch|r
 failed=0
 
 fetch() {
-  local out=$1 url=$2 tmp
+  local out=$1 url=$2 logo=${3:-} tmp
   tmp=$(mktemp)
   if ! curl -fsSL --retry 4 --retry-all-errors --retry-delay 5 --max-time 60 \
       -A 'kexe-dev-profile-cards' -o "$tmp" "$url"; then
@@ -86,6 +93,15 @@ fetch() {
     echo "::error::$out: SVG references an external resource and would render differently"
     rm -f "$tmp"; failed=1; return
   fi
+  if [[ -n $logo ]]; then
+    local b64
+    b64=$(base64 -w0 "$logo")
+    perl -0777 -i -pe "s{(<image [^>]*href=\")data:image/svg\+xml;base64,[^\"]*}{\$1data:image/svg+xml;base64,$b64}" "$tmp"
+    if ! grep -qF "$b64" "$tmp"; then
+      echo "::error::$out: could not swap in the logo from $logo"
+      rm -f "$tmp"; failed=1; return
+    fi
+  fi
   mkdir -p "$(dirname "$out")"
   mv "$tmp" "$out"
   chmod 644 "$out"
@@ -93,15 +109,16 @@ fetch() {
 }
 
 for entry in "${DYNAMIC[@]}"; do
-  fetch "${entry%%|*}" "${entry#*|}"
+  IFS='|' read -r out url logo <<< "$entry"
+  fetch "$out" "$url" "$logo"
 done
 
 for entry in "${STATIC[@]}"; do
-  out=${entry%%|*}
+  IFS='|' read -r out url logo <<< "$entry"
   if [[ -f $out && ${REFRESH_STATIC:-0} != 1 ]]; then
     continue
   fi
-  fetch "$out" "${entry#*|}"
+  fetch "$out" "$url" "$logo"
 done
 
 exit "$failed"
