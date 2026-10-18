@@ -35,7 +35,7 @@ STATIC=(
   "profile/badges/discord.svg|https://img.shields.io/badge/Discord-666666?style=for-the-badge&logo=discord&logoColor=white"
   "profile/badges/python.svg|https://img.shields.io/badge/Python-ffffff?style=for-the-badge&logo=python&logoColor=black"
   "profile/badges/html5.svg|https://img.shields.io/badge/HTML5-dddddd?style=for-the-badge&logo=html5&logoColor=black"
-  "profile/badges/css3.svg|https://img.shields.io/badge/CSS3-bbbbbb?style=for-the-badge&logo=css3&logoColor=black"
+  "profile/badges/css3.svg|https://img.shields.io/badge/CSS3-bbbbbb?style=for-the-badge&logo=css&logoColor=black"
   "profile/badges/bash.svg|https://img.shields.io/badge/Bash-999999?style=for-the-badge&logo=gnubash&logoColor=black"
   "profile/badges/cisco.svg|https://img.shields.io/badge/Cisco-ffffff?style=for-the-badge&logo=cisco&logoColor=black"
   "profile/badges/linux.svg|https://img.shields.io/badge/Linux-dddddd?style=for-the-badge&logo=linux&logoColor=black"
