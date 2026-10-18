@@ -27,7 +27,7 @@ DYNAMIC=(
 
 STATIC=(
   "profile/typing-header.svg|https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&lines=Alexander+Miroslav+Milan;AI+Student;Networks+%7C+Cybersecurity+%7C+Self-hosting;Building+arqone.eu"
-  "profile/typing-footer.svg|https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=16&duration=2000&pause=1400&color=666666&center=true&vCenter=true&width=435&lines=Thanks+for+stopping+by+%F0%9F%90%88"
+  "profile/typing-footer.svg|https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=16&duration=2000&pause=1400&color=666666&center=true&vCenter=true&width=480&lines=You+made+it+to+the+end%2C+here+have+a+cookie+%F0%9F%8D%AA"
   "profile/badges/ko-fi.svg|https://img.shields.io/badge/Ko--fi-Support%20me-white?style=for-the-badge&logo=ko-fi&logoColor=black"
   "profile/badges/os-arch-linux.svg|https://img.shields.io/badge/OS-Arch_Linux-ffffff?style=for-the-badge&logo=arch-linux&logoColor=black"
   "profile/badges/website.svg|https://img.shields.io/badge/arqone.eu-dddddd?style=for-the-badge&logo=firefox&logoColor=black"
