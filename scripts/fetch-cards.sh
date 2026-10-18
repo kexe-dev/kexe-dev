@@ -60,7 +60,19 @@ fetch() {
     echo "::error::$out: request failed"
     rm -f "$tmp"; failed=1; return
   fi
-  if ! head -c 2048 "$tmp" | grep -q '<svg'; then
+  # The streak-stats deployment runs a PHP that prints deprecation notices
+  # ahead of the SVG on a cold start. That output also stops it setting its
+  # headers, so the live URL serves text/html junk and the image breaks
+  # until a warm instance answers. Strip that prefix, but say so: the real
+  # fix is display_errors=Off in the streak-stats fork.
+  local before after
+  before=$(wc -c < "$tmp")
+  perl -0777 -i -pe 's{\A(?:\s*<br />\s*<b>(?:Deprecated|Warning|Notice)</b>:.*?<br />)+\s*}{}s' "$tmp"
+  after=$(wc -c < "$tmp")
+  if (( after != before )); then
+    echo "::warning::$out: stripped $((before - after)) bytes of PHP notices printed before the SVG"
+  fi
+  if ! perl -0777 -ne 'exit(/\A\s*(?:<\?xml[^>]*>\s*)?(?:<!--.*?-->\s*)*<svg[\s>]/s ? 0 : 1)' "$tmp"; then
     echo "::error::$out: response is not an SVG"
     rm -f "$tmp"; failed=1; return
   fi
