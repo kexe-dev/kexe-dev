@@ -18,8 +18,8 @@
                 <path id='path0'>
                             <!-- Single line -->
                                 <animate id='d0' attributeName='d' begin='0s;d0.end'
-                    dur='3400ms' fill='remove'
-                    values='m0,25 h0 ; m0,25 h480 ; m0,25 h480 ; m0,25 h0' keyTimes='0;0.47058823529412;0.88235294117647;1' />
+                    dur='6000ms' fill='remove'
+                    values='m0,25 h0 ; m0,25 h246.4 ; m0,25 h246.4 ; m0,25 h480 ; m0,25 h480 ; m0,25 h0' keyTimes='0;0.1369;0.3036;0.4333;0.9333;1' />
                     </path>
     <text font-family='"Fira Code", monospace' fill='#666666' font-size='16'
         dominant-baseline='middle'
