@@ -18,6 +18,13 @@
 # logo, so those badges are requested with a stand-in logo (same layout) and
 # then swapped.
 #
+# Every image also has a light-theme twin (x-light.svg) that the README
+# serves through <picture> to visitors on GitHub's light theme. Cards and the
+# header list theirs explicitly; each shields badge gets one derived by
+# light_url, which mirrors the grey ramp (#vv -> #(0x110 - vv), so ffffff ->
+# 111111, 555555 -> bbbbbb) and swaps the logo between black and white. A
+# custom logo has a twin too: logos/x-light.svg.
+#
 # A response that is not an SVG, or looks like a card's error message, never
 # overwrites the committed file; the script exits non-zero instead.
 set -euo pipefail
@@ -26,13 +33,18 @@ cd "$(dirname "$0")/.."
 
 DYNAMIC=(
   "profile/stats.svg|https://stats.arqone.eu/api?username=kexe-dev&count_private=true&include_all_commits=true&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=ffffff&icon_color=aaaaaa&text_color=bbbbbb"
+  "profile/stats-light.svg|https://stats.arqone.eu/api?username=kexe-dev&count_private=true&include_all_commits=true&show_icons=true&theme=default&hide_border=true&bg_color=ffffff&title_color=111111&icon_color=666666&text_color=555555"
   "profile/streak.svg|https://streakstats.arqone.eu/api?user=kexe-dev&theme=dark&hide_border=true&background=0d1117&ring=FF6600&fire=FF4500&currStreakLabel=ffffff&sideLabels=aaaaaa&dates=666666"
+  "profile/streak-light.svg|https://streakstats.arqone.eu/api?user=kexe-dev&theme=default&hide_border=true&background=ffffff&ring=FF6600&fire=FF4500&currStreakNum=111111&sideNums=111111&currStreakLabel=111111&sideLabels=666666&dates=aaaaaa&stroke=2c2e2e"
   "profile/wakatime.svg|https://stats.arqone.eu/api/wakatime?username=kexe_dev&theme=dark&hide_border=true&bg_color=0d1117&title_color=ffffff&text_color=bbbbbb&layout=compact&v=1"
+  "profile/wakatime-light.svg|https://stats.arqone.eu/api/wakatime?username=kexe_dev&theme=default&hide_border=true&bg_color=ffffff&title_color=111111&text_color=555555&layout=compact&v=1"
   "profile/graph.svg|https://graphstats.arqone.eu/graph?username=kexe-dev&theme=react-dark&bg_color=0d1117&color=ffffff&line=555555&point=aaaaaa&hide_border=true&area=true&area_color=222222"
+  "profile/graph-light.svg|https://graphstats.arqone.eu/graph?username=kexe-dev&bg_color=ffffff&color=111111&title_color=111111&line=bbbbbb&point=666666&hide_border=true&area=true&area_color=eeeeee"
 )
 
 STATIC=(
   "profile/typing-header.svg|https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=800&lines=Alexander+Miroslav+Milan;AI+Student;Networks+%7C+Cybersecurity+%7C+Self-hosting;Building+arqone.eu"
+  "profile/typing-header-light.svg|https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2000&pause=1000&color=111111&center=true&vCenter=true&width=800&lines=Alexander+Miroslav+Milan;AI+Student;Networks+%7C+Cybersecurity+%7C+Self-hosting;Building+arqone.eu"
   "profile/badges/ko-fi.svg|https://img.shields.io/badge/Ko--fi-Support%20me-white?style=for-the-badge&logo=ko-fi&logoColor=black"
   "profile/badges/os-arch-linux.svg|https://img.shields.io/badge/OS-Arch_Linux-ffffff?style=for-the-badge&logo=arch-linux&logoColor=black"
   "profile/badges/website.svg|https://img.shields.io/badge/arqone.eu-dddddd?style=for-the-badge&logo=firefox&logoColor=black"
@@ -114,17 +126,51 @@ fetch() {
   echo "ok  $out"
 }
 
+light_url() {
+  local url=$1 color v shade
+  color=$(sed -nE 's#.*-([0-9a-fA-F]{6}|white)\?style=.*#\1#p' <<< "$url")
+  [[ $color == white ]] && color=ffffff
+  color=${color,,}
+  if [[ ${#color} != 6 || ${color:0:2} != "${color:2:2}" || ${color:2:2} != "${color:4:2}" ]]; then
+    echo "::error::light_url: $url is not a grey badge" >&2
+    return 1
+  fi
+  v=$((16#${color:0:2}))
+  shade=$(printf '%02x' $((0x110 - v)))
+  url=$(sed -E "s#-([0-9a-fA-F]{6}|white)\?style=#-$shade$shade$shade?style=#" <<< "$url")
+  case $url in
+    *logoColor=black*) url=${url/logoColor=black/logoColor=white} ;;
+    *logoColor=white*) url=${url/logoColor=white/logoColor=black} ;;
+  esac
+  echo "$url"
+}
+
+if [[ ${1:-} == --print-light ]]; then
+  for entry in "${STATIC[@]}"; do
+    IFS='|' read -r out url logo <<< "$entry"
+    [[ $url == https://img.shields.io/badge/* ]] && echo "${out%.svg}-light.svg  $(light_url "$url")"
+  done
+  exit 0
+fi
+
 for entry in "${DYNAMIC[@]}"; do
   IFS='|' read -r out url logo <<< "$entry"
   fetch "$out" "$url" "$logo"
 done
 
+fetch_static() {
+  if [[ -f $1 && ${REFRESH_STATIC:-0} != 1 ]]; then
+    return
+  fi
+  fetch "$@"
+}
+
 for entry in "${STATIC[@]}"; do
   IFS='|' read -r out url logo <<< "$entry"
-  if [[ -f $out && ${REFRESH_STATIC:-0} != 1 ]]; then
-    continue
+  fetch_static "$out" "$url" "$logo"
+  if [[ $url == https://img.shields.io/badge/* ]]; then
+    fetch_static "${out%.svg}-light.svg" "$(light_url "$url")" "${logo:+${logo%.svg}-light.svg}"
   fi
-  fetch "$out" "$url" "$logo"
 done
 
 exit "$failed"
