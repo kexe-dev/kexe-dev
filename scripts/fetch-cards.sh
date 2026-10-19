@@ -142,6 +142,9 @@ light_url() {
     *logoColor=black*) url=${url/logoColor=black/logoColor=white} ;;
     *logoColor=white*) url=${url/logoColor=white/logoColor=black} ;;
   esac
+  # Two-part badges (label-message) draw the label in shields' default #555;
+  # its mirror is #bbbbbb. Badges with only a message ignore this.
+  [[ $url == *labelColor=* ]] || url+="&labelColor=bbbbbb"
   echo "$url"
 }
 
