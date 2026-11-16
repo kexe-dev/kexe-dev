@@ -75,9 +75,11 @@ Passionate about networks, cybersecurity, server infrastructure, and building th
 ## 🚀 Projects
 
 **[arqone.eu](https://arqone.eu)** - Personal server infrastructure & portfolio *(in development since 2024)*
+> 🚧 **Currently rebuilding** (as of 11/2026)
+>
 > Self-built physical server · Ubuntu Server · Nginx reverse proxy · Cloudflare DNS & SSL · Pelican game panel · Raspberry Pi + Tailscale remote access & Wake-on-LAN · ~50-member Discord community
 >
-> Planned: self-written backend and a cloud-hosted status page
+> Rebuilding: self-written backend, a cloud-hosted status page and a new brand design
 
 **[Arqone Frostline](https://arqone.eu/projects/frostline)** - Whitelisted modded Minecraft server *(09/2025 – 01/2026)*
 > Full server management, modpack creation & configuration, community management · ~20 players
